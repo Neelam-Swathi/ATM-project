@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "base.html" %}
+{% set title = "Check Balance" %}
+{% set css_file = "balance.css" %}
+
+{% block content %}
+<h1>Check Balance</h1>
+<form method="post">
+    <label>Account No:</label>
+    <input type="text" name="acc_no" required>
+    <input type="submit" value="Check">
+</form>
+
+{% if account %}
+<ul>
+    <li><strong>Account Holder:</strong> {{ account.name }}</li>
+    <li><strong>Balance:</strong> ₹{{ account.balance }}</li>
+</ul>
+{% endif %}
+{% endblock %}
+
+</body>
+</html>
